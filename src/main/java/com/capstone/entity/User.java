@@ -27,10 +27,14 @@ public class User{
 	private long phoneNumber;
 	private String username;
 	private String password;
+	private String orderId;
 	
 	@ManyToMany
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))   
 	private Set<Role> roles;
+	
+	@ManyToMany(mappedBy = "orders")
+	private Set<Order> orders;
 
 	public long getId() {
 		return id;

@@ -1,5 +1,7 @@
 package com.capstone.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,9 +44,9 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public void getAllProducts() {
+	public List<Product> getAllProducts() {
 		try {
-			productDAO.getAllProducts();
+			return productDAO.getAllProducts();
 		}catch(Exception e) {
 			throw e;
 		}

@@ -71,11 +71,6 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value = "/admindashboard", method = RequestMethod.GET)
-	public String adminDashboard() {
-		return "admindashboard";
-	}
-	
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String dashboard() {
 		return "dashboard";

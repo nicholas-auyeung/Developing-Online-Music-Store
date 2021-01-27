@@ -1,5 +1,7 @@
 package com.capstone.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,13 +45,22 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 
 	@Override
-	public void getAllProducts() {
+	public List<Product> getAllProducts() {
 		try {
-			productRepository.findAll();
+			return (List<Product>) productRepository.findAll();
 		}catch(Exception e) {
-			
+			throw e;
 		}
 		
+	}
+
+	@Override
+	public Product getProductDetails(long productId) {
+		try {
+			return productRepository.findById(productId).get();
+		}catch(Exception e) {
+			throw e;
+		}
 	}
 
 }
