@@ -9,6 +9,5 @@
 </head>
 <body>
 <h1>DASHBOARD</h1>
- <a href="<c:url value="/logout" />">Logout</a>
 </body>
 </html>
