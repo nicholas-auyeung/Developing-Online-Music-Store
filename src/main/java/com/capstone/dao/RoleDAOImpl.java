@@ -4,21 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capstone.entity.Role;
-import com.capstone.entity.User;
 import com.capstone.repository.RoleRepository;
-import com.capstone.repository.UserRepository;
 
 @Service
-public class UserDAOImpl implements UserDAO{
+public class RoleDAOImpl implements RoleDAO{
 	
 	@Autowired
-	UserRepository userRepository;
+	RoleRepository roleRepository;
 
 	@Override
-	public void addUser(User user) {
-		
-		userRepository.save(user);
-		
+	public void addRole(Role role) {
+		try {
+			roleRepository.save(role);
+		}catch(Exception e) {
+			throw e;
+		}
 	}
 
 }

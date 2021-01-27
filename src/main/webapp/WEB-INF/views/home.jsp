@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dashboard</title>
+<title>Home</title>
 </head>
 <body>
-<h1>DASHBOARD</h1>
- <a href="<c:url value="/logout" />">Logout</a>
+
+<a href="/dashboard">Dashboard</a>
+<a href="/admindashboard">Admin Dashboard</a>
 </body>
 </html>
