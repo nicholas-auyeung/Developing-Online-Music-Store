@@ -1,5 +1,7 @@
 package com.capstone.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,16 @@ public class OrderDetailsDAOImpl implements OrderDetailsDAO{
 			throw e;
 		}
 		
+	}
+
+	@Override
+	public List<OrderDetails> getOrderDetailsByOrderId(long orderId) {
+		
+		try {
+			return orderDetailsRepository.findAllByOrderId(orderId);
+		}catch(Exception e) {
+			throw e;
+		}
 	}
 
 }

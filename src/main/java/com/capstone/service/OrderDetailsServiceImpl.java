@@ -1,5 +1,7 @@
 package com.capstone.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,15 @@ public class OrderDetailsServiceImpl implements OrderDetailsService{
 			throw e;
 		}
 		
+	}
+
+	@Override
+	public List<OrderDetails> getOrderDetailsByOrderId(long orderId) {
+		try {
+			return orderDetailsDAO.getOrderDetailsByOrderId(orderId);
+		}catch(Exception e) {
+			throw e;
+		}
 	}
 
 }
