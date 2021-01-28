@@ -21,4 +21,11 @@ public class UserDAOImpl implements UserDAO{
 		
 	}
 
+	@Override
+	public void updateUser(User user) {
+		
+		userRepository.save(user);
+		
+	}
+
 }

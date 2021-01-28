@@ -17,9 +17,18 @@ public class OrderServiceImpl implements OrderService{
 		try {
 			orderDAO.createOrder(order);
 		}catch(Exception e) {
-			
+			throw e;
 		}
 		
+	}
+
+	@Override
+	public Order getOrder(long orderId) {
+		try {
+			return orderDAO.getOrder(orderId);
+		}catch(Exception e) {
+			throw e;
+		}
 	}
 
 }

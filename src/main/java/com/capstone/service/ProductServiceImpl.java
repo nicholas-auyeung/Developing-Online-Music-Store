@@ -53,4 +53,13 @@ public class ProductServiceImpl implements ProductService{
 		
 	}
 
+	@Override
+	public Product getProductDetails(long productId) {
+		try {
+			return productDAO.getProductDetails(productId);
+		}catch(Exception e) {
+			throw e;
+		}
+	}
+
 }

@@ -24,4 +24,5 @@ public class Product{
 	private String category;
 	private String pcondition;
 	private String image;
+	private long price;
 }

@@ -43,6 +43,13 @@ public class UserServiceImpl implements UserService{
 				e.printStackTrace();
 			}
 	}
+
+	@Override
+	public void updateUser(User user) {
+		
+		userDAO.updateUser(user);
+		
+	}
 	
 
 }

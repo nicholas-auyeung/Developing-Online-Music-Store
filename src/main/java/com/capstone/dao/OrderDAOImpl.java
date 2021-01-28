@@ -23,4 +23,15 @@ public class OrderDAOImpl implements OrderDAO{
 		
 	}
 
+	@Override
+	public Order getOrder(long orderId) {
+		
+		try {
+			return orderRepository.findById(orderId).get();
+			
+		}catch(Exception e) {
+			throw e;
+		}
+	}
+
 }
