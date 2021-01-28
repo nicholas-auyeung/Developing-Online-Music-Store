@@ -12,10 +12,10 @@
     <a class="navbar-brand" href="#">Le's Music Store</a>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item px-3">
-        <a class="nav-link active navbarlink" aria-current="page" href="index.html">Home</a>
+        <a class="nav-link active navbarlink" aria-current="page" href="/home">Home</a>
       </li>
       <li class="nav-item px-3">
-        <a class="nav-link active navbarlink" aria-current="page" href="menu.html">Products</a>
+        <a class="nav-link active navbarlink" aria-current="page" href="/products">Products</a>
       </li>
       <li class="nav-item px-3">
         <a class="nav-link active navbarlink" aria-current="page" href="locations.html">About</a>

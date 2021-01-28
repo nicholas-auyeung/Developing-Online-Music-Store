@@ -28,4 +28,10 @@ public class UserDAOImpl implements UserDAO{
 		
 	}
 
+	@Override
+	public User getUserbyUsername(String userName) {
+		
+		return userRepository.findByUsername(userName);
+	}
+
 }

@@ -6,6 +6,7 @@ public interface UserDAO {
 	
 	public void addUser(User user);
 	public void updateUser(User user);
+	public User getUserbyUsername(String userName);
 	
 
 }
