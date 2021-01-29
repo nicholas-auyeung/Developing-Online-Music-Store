@@ -110,3 +110,24 @@ body {
   	color:red;
   }
   
+  .registration-success-outer-container{
+    background-color: #CBC9D0;
+    padding: 60px;
+    width: 75%;
+    margin-right: 13%;
+  }
+
+  .registration-success-container{
+
+    background-color:#F3DFE3;
+    padding: 10px;
+    width: 74%;
+    
+  }
+
+  .registration-success-button{
+    background-color: #4D95D8;
+    color: white;
+    margin-left: 12%;
+  }
+  
