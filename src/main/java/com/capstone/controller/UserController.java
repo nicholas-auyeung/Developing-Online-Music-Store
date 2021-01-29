@@ -12,6 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,9 +41,19 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public String addUser(User user) {
+	public String addUser(User user, Model model) {
 		try {
-			
+			System.out.println("USERNAME");
+			System.out.println(userService.getUserbyUsername(user.getUsername()));
+			System.out.println("EMAIL");
+			System.out.println((userService.getUserbyEmail(user.getEmail())));
+			if(userService.getUserbyUsername(user.getUsername()) != null) {
+				model.addAttribute("usernameExistsMsg", "Username already exists.");
+				return "register";
+			}else if(userService.getUserbyEmail(user.getEmail()) != null) {
+				model.addAttribute("emailExistsMsg", "Email already exists.");
+				return "register";
+			}
 			userService.addUser(user);
 			
 		}catch(Exception e) {
@@ -67,15 +78,17 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String loginRouter() {
+	public String loginRouter(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String currentSessionUsername = auth.getName();
 		User currentSessionUser = userService.getUserbyUsername(currentSessionUsername);
 		for (Role role : currentSessionUser.getRoles())
 		{
 			if(role.getName().compareTo("ROLE_ADMIN") == 0) {
+				model.addAttribute("currentSessionUsername", currentSessionUsername);
 				return "adminhome";
 			}else if(role.getName().compareTo("ROLE_USER") == 0){
+				model.addAttribute("currentSessionUsername", currentSessionUsername);
 				return "userhome";
 			}
 	    }
