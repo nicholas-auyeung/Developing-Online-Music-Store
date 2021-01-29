@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.capstone.entity.BillingAddress;
 import com.capstone.entity.Role;
 import com.capstone.entity.User;
 import com.capstone.repository.RoleRepository;
+import com.capstone.service.BillingAddressService;
 import com.capstone.service.RoleService;
 import com.capstone.service.UserService;
 
@@ -31,31 +33,42 @@ public class UserController {
 	UserService userService;
 	
 	@Autowired
+	BillingAddressService billingAddressService;
+	
+	@Autowired
 	RoleRepository roleRepository;
 	
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public ModelAndView register() {
 		User user = new User();
-		return new ModelAndView("register", "form", user);
+		BillingAddress billingAddress = new BillingAddress();
+		ModelAndView mv = new ModelAndView("register", "form", user);
+		mv.addObject("form2", billingAddress);
+		return mv;
 	}
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public String addUser(User user, Model model) {
+	public String addUser(User user, BillingAddress billingAddress, Model model) {
 		try {
 			if(userService.getUserbyUsername(user.getUsername()) != null) {
 				User newUser = new User();
+				BillingAddress newBillingAddress = new BillingAddress();
 				model.addAttribute("form", newUser);
+				model.addAttribute("form2", newBillingAddress);
 				model.addAttribute("usernameExistsMsg", "Username already exists.");
 				return "register";
 			}else if(userService.getUserbyEmail(user.getEmail()) != null) {
 				User newUser = new User();
+				BillingAddress newBillingAddress = new BillingAddress();
 				model.addAttribute("form", newUser);
+				model.addAttribute("form2", newBillingAddress);
 				model.addAttribute("emailExistsMsg", "Email already exists.");
 				return "register";
 			}
 			userService.addUser(user);
-			
+			billingAddress.setUser(user);
+			billingAddressService.addBillingAddress(billingAddress);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

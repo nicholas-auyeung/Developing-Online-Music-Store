@@ -31,6 +31,7 @@ public class User{
 	private String username;
 	private String password;
 	private long orderId;
+	private long billingId;
 
 	
 	@ManyToMany
@@ -39,6 +40,9 @@ public class User{
 	
 	@OneToMany(mappedBy = "id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Order> orders;
+	
+	@OneToMany(mappedBy = "id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<BillingAddress> billingAddresses;
 
 	public long getId() {
 		return id;

@@ -76,41 +76,42 @@
                         <form:input type="password" path="password" name="password" id="password" class="form-control" required=""/>
                     </div>
                 </div><br/><br/>
+           		<form:form modelAttribute="form2" class="form" action="registration" method="post" role="form" autocomplete="off">
                 <h5 class = "register-header">Billing Address</h5>
-                <label for="streetName" class="mb-0 register-form-field">Street Name</label>
+                <form:label for="streetName" path="streetName" class="mb-0 register-form-field">Street Name</form:label>
                 <div class="row mb-1">
                     <div class="col-lg-11">
-                        <input type="text" name="streetName" id="streetName" class="form-control" required="">
+                        <form:input type="text" path="streetName" name="streetName" id="streetName" class="form-control" required=""/>
                     </div>
                 </div><br/>
-                <label for="apartmentNo" class="mb-0 register-form-field">Apartment No.</label>
+                <form:label for="apartmentNo" path="apartmentNo" class="mb-0 register-form-field">Apartment No.</form:label>
                 <div class="row mb-1">
                     <div class="col-lg-11">
-                        <input type="number" name="apartmentNo" id="apartmentNo" class="form-control">
+                        <form:input type="number" path="apartmentNo" name="apartmentNo" id="apartmentNo" class="form-control"/>
                     </div>
                 </div><br/>
-                <label for="city" class="mb-0 register-form-field">City</label>
+                <form:label for="city" path="city" class="mb-0 register-form-field">City</form:label>
                 <div class="row mb-1">
                     <div class="col-lg-11">
-                        <input type="text" name="city" id="city" class="form-control" required="">
+                        <form:input type="text" path="city" name="city" id="city" class="form-control" required=""/>
                     </div>
                 </div><br/>
-                <label for="state" class="mb-0 register-form-field">State</label>
+                <form:label for="state" path="state" class="mb-0 register-form-field">State</form:label>
                 <div class="row mb-1">
                     <div class="col-lg-11">
-                        <input type="text" name="state" id="state" class="form-control" required="">
+                        <form:input type="text" path="state" name="state" id="state" class="form-control" required=""/>
                     </div>
                 </div><br/>
-                <label for="country" class="mb-0 register-form-field">Country</label>
+                <form:label for="country" path="country" class="mb-0 register-form-field">Country</form:label>
                 <div class="row mb-1">
                     <div class="col-lg-11">
-                        <input type="text" name="country" id="country" class="form-control" required="">
+                        <form:input type="text" path="country" name="country" id="country" class="form-control" required=""/>
                     </div>
                 </div><br/>
 
                 <button type="submit" class="btn btn-primary btn-sm">Submit</button>
         </form:form>
-        
+        </form:form>
       </div><br/>
 <footer class="bg-light text-center text-lg-start footer">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
