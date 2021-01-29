@@ -86,3 +86,27 @@ body {
     background-color: #2CEE15 
     
   }
+  
+  .register-container{
+    margin-left: 11%;
+  }
+
+  .register-header{
+
+    color:#5D615D;
+  }
+
+  .register-instructions{
+
+    color:#5D615D;
+  }
+
+  .register-form-field{
+    color:#5D615D;
+    font-weight: bold;
+  }
+  
+  .form-error{
+  	color:red;
+  }
+  

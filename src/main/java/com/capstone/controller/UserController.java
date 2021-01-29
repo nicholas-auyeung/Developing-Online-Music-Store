@@ -43,21 +43,21 @@ public class UserController {
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String addUser(User user, Model model) {
 		try {
-			System.out.println("USERNAME");
-			System.out.println(userService.getUserbyUsername(user.getUsername()));
-			System.out.println("EMAIL");
-			System.out.println((userService.getUserbyEmail(user.getEmail())));
 			if(userService.getUserbyUsername(user.getUsername()) != null) {
+				User newUser = new User();
+				model.addAttribute("form", newUser);
 				model.addAttribute("usernameExistsMsg", "Username already exists.");
 				return "register";
 			}else if(userService.getUserbyEmail(user.getEmail()) != null) {
+				User newUser = new User();
+				model.addAttribute("form", newUser);
 				model.addAttribute("emailExistsMsg", "Email already exists.");
 				return "register";
 			}
 			userService.addUser(user);
 			
 		}catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 		return "login";
 	}

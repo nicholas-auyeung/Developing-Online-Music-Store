@@ -9,7 +9,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="resources/css/styles2.css" />
+<link href="<c:url value="css/app.css" />" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>Register</title>
 </head>
@@ -49,64 +49,64 @@
                     <div class="col-lg-11">
                         <form:input type="text" path="name" name="name" id="name" class="form-control" required=""/>
                     </div>
-                </div>
-                <a>${emailExistsMsg}</a>
+                </div><br/>
                 <form:label for="email" path="email" class="mb-0 register-form-field">Email</form:label>
+                <div class = "form-error">${emailExistsMsg}</div>
                 <div class="row mb-1">
                     <div class="col-lg-11">
                         <form:input type="text" path="email" name="email" id="email" class="form-control" required=""/>
                     </div>
-                </div>
+                </div><br/>
                 <form:label for="phoneNumber" path="phoneNumber" class="mb-0 register-form-field">Phone</form:label>
                 <div class="row mb-1">
                     <div class="col-lg-11">
                         <form:input type="number" path="phoneNumber" name="phoneNumber" id="phoneNumber" class="form-control" required=""/>
                     </div>
-                </div>
-                <a>${usernameExistsMsg}</a>
+                </div><br/>
                 <form:label for="username" path="username" class="mb-0 register-form-field">Username</form:label>
+                <div class = "form-error">${usernameExistsMsg}</div>
                 <div class="row mb-1">
                     <div class="col-lg-11">
                         <form:input type="text" path="username" name="username" id="username" class="form-control" required=""/>
                     </div>
-                </div>
+                </div><br/>
                 <form:label for="password" path="password" class="mb-0 register-form-field">Password</form:label>
                 <div class="row mb-1">
                     <div class="col-lg-11">
                         <form:input type="password" path="password" name="password" id="password" class="form-control" required=""/>
                     </div>
-                </div><br/>
+                </div><br/><br/>
                 <h5 class = "register-header">Billing Address</h5>
                 <label for="streetName" class="mb-0 register-form-field">Street Name</label>
                 <div class="row mb-1">
                     <div class="col-lg-11">
                         <input type="text" name="streetName" id="streetName" class="form-control" required="">
                     </div>
-                </div>
+                </div><br/>
                 <label for="apartmentNo" class="mb-0 register-form-field">Apartment No.</label>
                 <div class="row mb-1">
                     <div class="col-lg-11">
                         <input type="number" name="apartmentNo" id="apartmentNo" class="form-control">
                     </div>
-                </div>
+                </div><br/>
                 <label for="city" class="mb-0 register-form-field">City</label>
                 <div class="row mb-1">
                     <div class="col-lg-11">
                         <input type="text" name="city" id="city" class="form-control" required="">
                     </div>
-                </div>
+                </div><br/>
                 <label for="state" class="mb-0 register-form-field">State</label>
                 <div class="row mb-1">
                     <div class="col-lg-11">
                         <input type="text" name="state" id="state" class="form-control" required="">
                     </div>
-                </div>
+                </div><br/>
                 <label for="country" class="mb-0 register-form-field">Country</label>
                 <div class="row mb-1">
                     <div class="col-lg-11">
                         <input type="text" name="country" id="country" class="form-control" required="">
                     </div>
-                </div>
+                </div><br/>
 
                 <button type="submit" class="btn btn-primary btn-sm">Submit</button>
         </form:form>
