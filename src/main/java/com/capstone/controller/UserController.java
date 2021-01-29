@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
@@ -65,16 +66,22 @@ public class UserController {
 	    return "redirect:/login?logout";
 	}
 	
-	@RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
-	public String home() {
-		return "home";
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String loginRouter() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String currentSessionUsername = auth.getName();
+		User currentSessionUser = userService.getUserbyUsername(currentSessionUsername);
+		for (Role role : currentSessionUser.getRoles())
+		{
+			if(role.getName().compareTo("ROLE_ADMIN") == 0) {
+				return "adminhome";
+			}else if(role.getName().compareTo("ROLE_USER") == 0){
+				return "userhome";
+			}
+	    }
+		return "403";
 	}
 	
-	
-	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-	public String dashboard() {
-		return "dashboard";
-	}
 	
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
 	public String accessdenied() {

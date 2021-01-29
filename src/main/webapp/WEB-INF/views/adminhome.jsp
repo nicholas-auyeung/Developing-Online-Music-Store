@@ -8,7 +8,7 @@
 <title>Home</title>
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #808080;">
-  <div class="container-fluid flex-shrink">
+  <div class="container-fluid">
     <a class="navbar-brand" href="#">Le's Music Store</a>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item px-3">
@@ -18,7 +18,7 @@
         <a class="nav-link active navbarlink" aria-current="page" href="/products">Products</a>
       </li>
       <li class="nav-item px-3">
-        <a class="nav-link active navbarlink" aria-current="page" href="/about">About</a>
+        <a class="nav-link active navbarlink" aria-current="page" href="locations.html">About</a>
       </li>
       <li class="nav-item px-3 navbarlink">
         <a class="nav-link active" aria-current="page" href="contact.html">Login</a>
