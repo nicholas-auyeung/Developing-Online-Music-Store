@@ -131,3 +131,49 @@ body {
     margin-left: 12%;
   }
   
+  
+  .product-banner{
+     
+     padding: 60px;
+     width: 75%;
+     margin-right: 13%;
+
+   }
+
+   .product-banner-text{
+
+   }
+   .product-search{
+    float: right;
+    margin-right: 6%;
+   }
+   .search-caption{
+    font-weight: bold;
+    float: right;
+    margin-right: 1%;
+  }
+
+   .product-table-container{
+    
+    padding: 15px;
+    width: 75%;
+    margin-right: 13%;
+
+
+   }
+
+   .product-table{
+     margin-left: 5%;
+     width: 90%;
+   }
+
+   .product-table-thead{
+
+    background-color:#CDF9C3;
+  
+   }
+   
+   .product-table-image{
+      width: 70%;
+   }
+  
