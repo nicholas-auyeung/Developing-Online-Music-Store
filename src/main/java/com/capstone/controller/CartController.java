@@ -38,7 +38,6 @@ public class CartController {
 				return new ModelAndView("cart");
 			}else {
 				List<OrderDetails> listOrderDetails = orderDetailsService.getOrderDetailsByOrderId(currentSessionUser.getOrderId());
-				//stream list to get total
 				return new ModelAndView("cart", "listOrderDetails", listOrderDetails);
 			}
 			

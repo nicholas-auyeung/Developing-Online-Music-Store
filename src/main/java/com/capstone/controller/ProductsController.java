@@ -37,7 +37,7 @@ public class ProductsController {
 	@Autowired
 	OrderDetailsService orderDetailsService;
 	
-	
+	boolean orderDetailDuplicate = false;
 	
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public ModelAndView productsPage() {
@@ -81,17 +81,35 @@ public class ProductsController {
 				OrderDetails item = new OrderDetails();
 				item.setName(productService.getProductDetails(productId).getName());
 				item.setPrice(productService.getProductDetails(productId).getPrice());
+				item.setQprice(item.getPrice() * item.getQuantity());
+				item.setProductId(productId);
 				item.setOrder(newOrder);
 				orderDetailsService.addOrderDetails(item);
-				return new RedirectView("/userproducts");
+				return new RedirectView("/userproductdetails/"+productId);
 			}else {
 				Order order = orderService.getOrder(currentSessionUser.getOrderId());
-				OrderDetails item = new OrderDetails();
-				item.setName(productService.getProductDetails(productId).getName());
-				item.setPrice(productService.getProductDetails(productId).getPrice());
-				item.setOrder(order);
-				orderDetailsService.addOrderDetails(item);
-				return new RedirectView("/userproducts");
+				List<OrderDetails> listOrderDetails = orderDetailsService.getOrderDetailsByOrderId(order.getId());
+				listOrderDetails.stream().filter(orderDetails -> orderDetails.getName().equals(productService.getProductDetails(productId).getName())).findAny()
+				.ifPresent(orderDetails -> {
+					if(orderDetails.getProductId() == productId) {
+						orderDetails.setQuantity(orderDetails.getQuantity() + 1);
+						orderDetails.setQprice(orderDetails.getPrice() * orderDetails.getQuantity());
+						orderDetailsService.updateOrderDetails(orderDetails);
+						orderDetailDuplicate = true;
+					}
+				});
+				if(!orderDetailDuplicate) {
+					OrderDetails item = new OrderDetails();
+					item.setName(productService.getProductDetails(productId).getName());
+					item.setPrice(productService.getProductDetails(productId).getPrice());
+					item.setQprice(item.getPrice() * item.getQuantity());
+					item.setProductId(productId);
+					item.setOrder(order);
+					orderDetailsService.addOrderDetails(item);
+					return new RedirectView("/userproductdetails/"+productId);
+				}else {
+					return new RedirectView("/userproductdetails/"+productId);
+				}
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

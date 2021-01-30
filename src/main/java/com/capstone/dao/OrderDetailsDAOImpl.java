@@ -35,4 +35,14 @@ public class OrderDetailsDAOImpl implements OrderDetailsDAO{
 		}
 	}
 
+	@Override
+	public void updateOrderDetails(OrderDetails orderDetails) {
+		try {
+			orderDetailsRepository.save(orderDetails);
+		}catch(Exception e) {
+			throw e;
+		}
+		
+	}
+
 }

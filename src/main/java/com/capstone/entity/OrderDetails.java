@@ -28,8 +28,12 @@ public class OrderDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	private long productId;
 	private String name;
 	private long price;
+	private long qprice;
+	private int quantity = 1;
+	
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "order_id", nullable = false)

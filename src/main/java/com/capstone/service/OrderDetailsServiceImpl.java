@@ -33,4 +33,14 @@ public class OrderDetailsServiceImpl implements OrderDetailsService{
 		}
 	}
 
+	@Override
+	public void updateOrderDetails(OrderDetails orderDetails) {
+		try {
+			orderDetailsDAO.updateOrderDetails(orderDetails);
+		}catch(Exception e) {
+			throw e;
+		}
+		
+	}
+
 }

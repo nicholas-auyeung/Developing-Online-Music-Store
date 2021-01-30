@@ -8,5 +8,6 @@ public interface OrderDetailsService {
 	
 	public void addOrderDetails(OrderDetails orderDetails);
 	public List<OrderDetails> getOrderDetailsByOrderId(long orderId);
+	public void updateOrderDetails(OrderDetails orderDetails);
 
 }
