@@ -30,11 +30,12 @@
               </li>
           </ul>
           <ul class="navbar-nav ml-auto" id="text">
-            <li class="nav-item active">
-              <a class="nav-link" href="/login">Login</a>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout" th:href="@{/logout}">Logout</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/registration">Register</a>
+              <a class="nav-link" href="/cart">Cart</a>
+            </li>
             </li>
           </ul>
         </div>
@@ -56,7 +57,11 @@
                   <p class="card-text">Category: ${productDetails.category}</p>
                   <p class="card-text">Condition: ${productDetails.pcondition}</p>
                   <p class="card-text">${productDetails.price}</p>
-					<a class="btn inline product-detail-back" href="/products" role="button"> Back</a>
+                  <form action="/userproductdetails/${productDetails.id}" method="post">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					<a class="btn inline product-detail-back" href="/userproducts" role="button"> Back</a>
+					<input type="submit" class="btn inline product-detail-order-now"  value="Order Now">
+				</form>
                 </div>
               </div>
             </div>

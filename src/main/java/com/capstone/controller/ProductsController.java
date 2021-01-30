@@ -45,7 +45,12 @@ public class ProductsController {
 		return new ModelAndView("products", "productList", productList);
 	}
 	
-	
+	@RequestMapping(value = "/userproducts", method = RequestMethod.GET)
+	public ModelAndView userProductsPage() {
+		List<Product> productList = productService.getAllProducts();
+		return new ModelAndView("userproducts", "productList", productList);
+	}
+
 	@RequestMapping(value = "/productdetails/{productId}", method = RequestMethod.GET)
 	public ModelAndView productDetailsPage(@PathVariable("productId") long productId) {
 		Product productDetails = productService.getProductDetails(productId);
@@ -53,7 +58,14 @@ public class ProductsController {
 	}
 	
 	
-	@RequestMapping(value = "/productdetails/{productId}", method = RequestMethod.POST)
+	@RequestMapping(value = "/userproductdetails/{productId}", method = RequestMethod.GET)
+	public ModelAndView userProductDetailsPage(@PathVariable("productId") long productId) {
+		Product productDetails = productService.getProductDetails(productId);
+		return new ModelAndView("userproductdetails", "productDetails", productDetails);
+	}
+	
+	
+	@RequestMapping(value = "/userproductdetails/{productId}", method = RequestMethod.POST)
 	public RedirectView addToShoppingCart(@PathVariable("productId") long productId) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String currentSessionUsername = auth.getName();
@@ -71,7 +83,7 @@ public class ProductsController {
 				item.setPrice(productService.getProductDetails(productId).getPrice());
 				item.setOrder(newOrder);
 				orderDetailsService.addOrderDetails(item);
-				return new RedirectView("/products");
+				return new RedirectView("/userproducts");
 			}else {
 				Order order = orderService.getOrder(currentSessionUser.getOrderId());
 				OrderDetails item = new OrderDetails();
@@ -79,7 +91,7 @@ public class ProductsController {
 				item.setPrice(productService.getProductDetails(productId).getPrice());
 				item.setOrder(order);
 				orderDetailsService.addOrderDetails(item);
-				return new RedirectView("/products");
+				return new RedirectView("/userproducts");
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

@@ -23,7 +23,7 @@
               <a class="nav-link" href="/userhome">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/products">Products</a>
+              <a class="nav-link" href="/userproducts">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
