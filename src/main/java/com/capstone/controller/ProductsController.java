@@ -47,11 +47,9 @@ public class ProductsController {
 	
 	
 	@RequestMapping(value = "/productdetails/{productId}", method = RequestMethod.GET)
-	public String productDetailsPage(@PathVariable("productId") long productId, Model model) {
+	public ModelAndView productDetailsPage(@PathVariable("productId") long productId) {
 		Product productDetails = productService.getProductDetails(productId);
-		model.addAttribute("productDetails", productDetails);
-		return "productdetails";
-		//return new ModelAndView("productdetails", "productDetails", productDetails);
+		return new ModelAndView("productdetails", "productDetails", productDetails);
 	}
 	
 	
