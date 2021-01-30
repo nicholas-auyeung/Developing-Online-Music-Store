@@ -46,7 +46,7 @@
 
       </div>
       <div class = "container product-table-container">
-        <input class = "product-search" type="text" id="myInput" onkeyup="myFunction()" placeholder="" title="Search Products"><a class ="search-caption">Search:</a> <br/><br/>
+        <input class = "product-search" type="text" id="myInput" onkeyup="searchProducts()" placeholder="" title="Search Products"><a class ="search-caption">Search:</a> <br/><br/>
 <table id="myTable" class="table product-table">
 		<thead class = "product-table-thead">
 			<th scope = "col">Photo Thumb</th>

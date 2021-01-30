@@ -61,7 +61,7 @@ pageEncoding="UTF-8"%>
                         <input type="password" name="password" id="password" class="form-control" required="">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-sm login-button">Submit</button><br/>
+                <button type="submit" class="btn btn-sm login-button">Submit</button><br/>
             </fieldset>
             <input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />

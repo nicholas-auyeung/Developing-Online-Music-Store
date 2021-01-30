@@ -140,9 +140,6 @@ body {
 
    }
 
-   .product-banner-text{
-
-   }
    .product-search{
     float: right;
     margin-right: 6%;
@@ -176,4 +173,42 @@ body {
    .product-table-image{
       width: 70%;
    }
+   
+   
+   .product-banner-text{
+     color: #5D615D;
+   }
+   
+   .product-detail-banner-text{
+    color: #5D615D;
+   }
+   
+   .product-details-image{
+     width: 80%;
+   }
+   .product-details-container{
+    margin-left: 10%;
+   }
+   .product-details-card{
+     padding: 10px;
+     background-color: #F0EEF8;
+     border: none;
+   }
+
+   .inline {
+    display:inline-block;
+    margin-right:5px;
+ }
+
+ .product-detail-back{
+    color: black;
+    border-color: grey;
+    background-color: white;
+ }
+
+ .product-detail-order-now{
+   color: white;
+   border-color: #F3AD18;
+   background-color: #F3AD18 ;
+ }
   

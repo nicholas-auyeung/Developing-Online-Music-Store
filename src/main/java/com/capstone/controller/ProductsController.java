@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,9 +47,11 @@ public class ProductsController {
 	
 	
 	@RequestMapping(value = "/productdetails/{productId}", method = RequestMethod.GET)
-	public ModelAndView productDetailsPage(@PathVariable("productId") long productId) {
+	public String productDetailsPage(@PathVariable("productId") long productId, Model model) {
 		Product productDetails = productService.getProductDetails(productId);
-		return new ModelAndView("productdetails", "productDetails", productDetails);
+		model.addAttribute("productDetails", productDetails);
+		return "productdetails";
+		//return new ModelAndView("productdetails", "productDetails", productDetails);
 	}
 	
 	
