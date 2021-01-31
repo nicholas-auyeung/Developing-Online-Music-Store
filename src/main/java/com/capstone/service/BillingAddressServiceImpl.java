@@ -30,6 +30,25 @@ public class BillingAddressServiceImpl implements BillingAddressService{
 			throw e;
 		}
 	}
+
+	@Override
+	public void updateBillingAddress(BillingAddress billingAddress) {
+		try {
+			billingAddressDAO.updateBillingAddress(billingAddress);
+		}catch(Exception e) {
+			throw e;
+		}
+		
+	}
+
+	@Override
+	public BillingAddress findByUserId(long userId) {
+		try {
+			return billingAddressDAO.findByUserId(userId);
+		}catch(Exception e) {
+			throw e;
+		}
+	}
 	
 
 }

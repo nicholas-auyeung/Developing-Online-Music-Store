@@ -22,12 +22,13 @@ public class BillingAddress {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long bId;
 	private String streetName;
 	private int apartmentNo;
 	private String city;
 	private String state;
 	private String country;
+	private int zipCode;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "user_id", nullable = false)

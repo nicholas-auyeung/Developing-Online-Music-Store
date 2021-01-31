@@ -69,6 +69,9 @@ public class UserController {
 			userService.addUser(user);
 			billingAddress.setUser(user);
 			billingAddressService.addBillingAddress(billingAddress);
+			user.setBillingId(billingAddressService.findByUserId(user.getId()).getBId());
+			userService.updateUser(user);
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -108,6 +111,34 @@ public class UserController {
 		return "403";
 	}
 	
+	@RequestMapping(value = "/userdashboard", method = RequestMethod.GET)
+	public ModelAndView userDashboard() {
+		try {
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			String currentSessionUsername = auth.getName();
+			User currentSessionUser = userService.getUserbyUsername(currentSessionUsername);
+			BillingAddress currentUserBillingAddress = billingAddressService.getBillingAddress(currentSessionUser.getBillingId());
+			ModelAndView mv = new ModelAndView("userdashboard", "form", currentSessionUser);
+			mv.addObject("form2", currentUserBillingAddress);
+			mv.addObject("currentSessionUsername", currentSessionUsername);
+			return mv;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+	}
+	
+	@RequestMapping(value = "/userdashboard", method = RequestMethod.POST)
+	public RedirectView confirmUserDashboard(User user, BillingAddress billingAddress) {
+		userService.updateUser(user);
+		billingAddress.setUser(user);
+		billingAddressService.updateBillingAddress(billingAddress);
+		return new RedirectView("/userhome");
+		
+		
+	}
 	
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
 	public String accessdenied() {

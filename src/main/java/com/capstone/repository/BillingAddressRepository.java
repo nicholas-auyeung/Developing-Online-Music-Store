@@ -7,5 +7,6 @@ import com.capstone.entity.BillingAddress;
 
 @Repository
 public interface BillingAddressRepository extends CrudRepository<BillingAddress, Long>{
-
+	
+	BillingAddress findByUserId(long userId);
 }

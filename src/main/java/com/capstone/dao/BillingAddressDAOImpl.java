@@ -33,4 +33,23 @@ public class BillingAddressDAOImpl implements BillingAddressDAO{
 		}
 	}
 
+	@Override
+	public void updateBillingAddress(BillingAddress billingAddress) {
+		try {
+			billingAddressRepository.save(billingAddress);
+		}catch(Exception e) {
+			throw e;
+		}
+		
+	}
+
+	@Override
+	public BillingAddress findByUserId(long userId) {
+		try {
+			return billingAddressRepository.findByUserId(userId);
+		}catch(Exception e) {
+			throw e;
+		}
+	}
+
 }

@@ -41,7 +41,7 @@ public class User{
 	@OneToMany(mappedBy = "id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Order> orders;
 	
-	@OneToMany(mappedBy = "id", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "bId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<BillingAddress> billingAddresses;
 
 	public long getId() {
@@ -114,6 +114,22 @@ public class User{
 
 	public void setOrders(Set<Order> orders) {
 		this.orders = orders;
+	}
+
+	public long getBillingId() {
+		return billingId;
+	}
+
+	public void setBillingId(long billingId) {
+		this.billingId = billingId;
+	}
+
+	public Set<BillingAddress> getBillingAddresses() {
+		return billingAddresses;
+	}
+
+	public void setBillingAddresses(Set<BillingAddress> billingAddresses) {
+		this.billingAddresses = billingAddresses;
 	}
 	
 	
