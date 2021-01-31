@@ -24,5 +24,13 @@ public class HomeController {
 		model.addAttribute("currentSessionUsername", currentSessionUsername);
 		return "userhome";
 	}
+	
+	@RequestMapping(value = "/adminhome", method = RequestMethod.GET)
+	public String adminhome(Model model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String currentSessionUsername = auth.getName();
+		model.addAttribute("currentSessionUsername", currentSessionUsername);
+		return "adminhome";
+	}
 
 }
