@@ -1,6 +1,7 @@
 package com.capstone.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -35,10 +36,16 @@ public class CartController {
 		User currentSessionUser = userService.getUserbyUsername(currentSessionUsername);
 		try {
 			if(currentSessionUser.getOrderId() == 0) {
-				return new ModelAndView("cart");
+				ModelAndView mv = new ModelAndView("cart");
+				mv.addObject("totalPrice", 0);
 			}else {
 				List<OrderDetails> listOrderDetails = orderDetailsService.getOrderDetailsByOrderId(currentSessionUser.getOrderId());
-				return new ModelAndView("cart", "listOrderDetails", listOrderDetails);
+				ModelAndView mv = new ModelAndView("cart", "listOrderDetails", listOrderDetails);
+				long totalPrice = listOrderDetails.stream()
+						.map(x -> x.getQprice())
+						.collect(Collectors.summingLong(Long::longValue));
+				mv.addObject("totalPrice", totalPrice);
+				return mv;
 			}
 			
 		}catch(Exception e) {
