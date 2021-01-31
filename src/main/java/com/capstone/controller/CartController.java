@@ -156,5 +156,21 @@ public class CartController {
 		return null;
 	}
 	
+	@RequestMapping(value = "/submitordersuccess", method = RequestMethod.GET)
+	public String thankYouOrderPage() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String currentSessionUsername = auth.getName();
+		User currentSessionUser = userService.getUserbyUsername(currentSessionUsername);
+		Order closeOrder = orderService.getOrder(currentSessionUser.getOrderId());
+		closeOrder.setOrderStatus(false);
+		orderService.updateOrder(closeOrder);
+		Order newOrder = new Order();
+		newOrder.setOrderStatus(true);
+		newOrder.setUser(currentSessionUser);
+		orderService.createOrder(newOrder);
+		currentSessionUser.setOrderId(newOrder.getId());
+		userService.updateUser(currentSessionUser);
+		return "ordersuccess";
+	}
 	
 }

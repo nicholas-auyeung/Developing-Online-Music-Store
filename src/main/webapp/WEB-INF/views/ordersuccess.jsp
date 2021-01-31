@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +10,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="../css/app.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
-<title>Receipt</title>
+<title>Order Success</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-login">
@@ -41,41 +39,15 @@
           </li>
           </ul>
         </div>
-      </nav>
-      <div class = "container order-banner">
-        <h1 class = "order-banner-text">Order</h1>
-        <h6 class = "order-banner-text">Order Confirmation</h6>
-      </div>
-      <div class = "container order-container"><br/>
-        <h2 class="receipt-header">Receipt</h2>
-        <h6>Shipping Address</h6>
-        ${currentSessionBillingAddress.streetName}<br/>
-        ${currentSessionBillingAddress.city}
-        <h6>Billing Address</h6>
-        ${currentSessionBillingAddress.streetName}<br/>
-        ${currentSessionBillingAddress.city}${currentSessionBillingAddress.state}<br/>
-        ${currentSessionBillingAddress.country}<br/>
-        <table id="myTable" class="table order-table">
-            <thead class = "order-table-thead">
-              <th scope = "col">Product</th>
-              <th scope = "col">#</th>
-              <th scope = "col">Price</th>
-              <th scope = "col">Total</th>
-                </thead>
-              <c:forEach items="${listOrderDetails}" var="orderDetails">
-                <tr>
-                  <th scope ="row">${orderDetails.name}</th>
-                  <td>${orderDetails.quantity}</td>
-                  <td>${orderDetails.price}</td>
-                  <td>${product.qprice}</td>
-              </c:forEach>
-        </table>
-        <a class="cart-grand-total-price inline">${totalPrice}</a><a class="cart-grand-total inline">Grand Total:</a>
+      </nav><br/>
+      <div class = "container order-success-outer-container">
+        <div class = "container order-success-container">
+            <h1>Thank you for your business!</h1>
+        </div>
+        <h5 class = "est-message">Your order will be delivered to you within three business days!</h5>
       </div><br/>
-      <a class="btn order-back-button inline" href="/cart" role="button">back</a>
-      <a class="btn btn-success submit-order-button inline" href="/submitordersuccess" role="button">Submit Order</a>
-      <a class="btn order-cancel-button" href="/userhome" role="button">Cancel</a>
-<br/><footer class="bg-light text-center text-lg-start footer">
+      <a class="btn btn-outline-primary registration-success-button" href="/userhome" role="button"><i class="fa fa-hand-o-left"></i> OK</a>
+    <footer class="bg-light text-center text-lg-start footer">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
       © 2021 Copyright:
       <a class="text-dark" href="#">Le's Music Store</a>

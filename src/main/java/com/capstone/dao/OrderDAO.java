@@ -6,4 +6,5 @@ public interface OrderDAO {
 	
 	public void createOrder(Order order);
 	public Order getOrder(long orderId);
+	public void updateOrder(Order order);
 }

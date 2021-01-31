@@ -18,7 +18,6 @@ import com.capstone.repository.UserRepository;
 @Component
 public class SetupDataLoader implements ApplicationListener<ContextRefreshedEvent>{
 	
-	boolean alreadySetup = false;
 	
 	@Autowired
 	private RoleRepository roleRepository;
@@ -32,8 +31,10 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 	@Override
 	@Transactional
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		if(alreadySetup)
+		
+		if(userRepository.findByUsername("admin") != null) {
 			return;
+		}
 		
 		Set<User> adminUsers = new HashSet<User>();
 		Set<User> users = new HashSet<User>();
@@ -54,7 +55,6 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 		user.setRoles(roles);
 		userRepository.save(user);
 		
-		alreadySetup = true;
 		
 	}
 

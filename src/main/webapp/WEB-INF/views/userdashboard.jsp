@@ -21,17 +21,20 @@
             <a class="navbar-brand" href="#">Le's Music Store</a>
           <ul class="navbar-nav mr-auto" id="text">
             <li class="nav-item active">
-              <a class="nav-link" href="/home">Home</a>
+              <a class="nav-link" href="/userhome">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/products">Products</a>
+              <a class="nav-link" href="/userproducts">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
               </li>
           </ul>
           <ul class="navbar-nav ml-auto" id="text">
-            <li class="nav-item active">
+          	<li class="nav-item active">
+                <a class="nav-link" href="/userdashboard">Welcome ${currentSessionUsername}</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/logout" th:href="@{/logout}">Logout</a>
           </li>
           <li class="nav-item">

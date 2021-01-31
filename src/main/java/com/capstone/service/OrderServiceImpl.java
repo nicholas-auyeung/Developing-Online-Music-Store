@@ -31,4 +31,14 @@ public class OrderServiceImpl implements OrderService{
 		}
 	}
 
+	@Override
+	public void updateOrder(Order order) {
+		try {
+			orderDAO.updateOrder(order);
+		}catch(Exception e) {
+			throw e;
+		}
+		
+	}
+
 }

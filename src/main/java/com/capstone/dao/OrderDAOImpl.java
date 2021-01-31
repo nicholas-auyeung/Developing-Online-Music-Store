@@ -34,4 +34,14 @@ public class OrderDAOImpl implements OrderDAO{
 		}
 	}
 
+	@Override
+	public void updateOrder(Order order) {
+		try {
+			orderRepository.save(order);
+		}catch(Exception e) {
+			throw e;
+		}
+		
+	}
+
 }
