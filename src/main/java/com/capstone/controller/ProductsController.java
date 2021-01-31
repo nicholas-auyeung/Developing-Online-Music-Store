@@ -47,8 +47,12 @@ public class ProductsController {
 	
 	@RequestMapping(value = "/userproducts", method = RequestMethod.GET)
 	public ModelAndView userProductsPage() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String currentSessionUsername = auth.getName();
 		List<Product> productList = productService.getAllProducts();
-		return new ModelAndView("userproducts", "productList", productList);
+		ModelAndView mv = new ModelAndView("userproducts", "productList", productList);
+		mv.addObject("currentSessionUsername", currentSessionUsername);
+		return mv;
 	}
 
 	@RequestMapping(value = "/productdetails/{productId}", method = RequestMethod.GET)
@@ -60,8 +64,12 @@ public class ProductsController {
 	
 	@RequestMapping(value = "/userproductdetails/{productId}", method = RequestMethod.GET)
 	public ModelAndView userProductDetailsPage(@PathVariable("productId") long productId) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String currentSessionUsername = auth.getName();
 		Product productDetails = productService.getProductDetails(productId);
-		return new ModelAndView("userproductdetails", "productDetails", productDetails);
+		ModelAndView mv = new ModelAndView("userproductdetails", "productDetails", productDetails);
+		mv.addObject("currentSessionUsername", currentSessionUsername);
+		return mv;
 	}
 	
 	
@@ -108,6 +116,7 @@ public class ProductsController {
 					orderDetailsService.addOrderDetails(item);
 					return new RedirectView("/userproductdetails/"+productId);
 				}else {
+					orderDetailDuplicate = false;
 					return new RedirectView("/userproductdetails/"+productId);
 				}
 			}

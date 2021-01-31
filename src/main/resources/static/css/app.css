@@ -269,3 +269,12 @@ body {
      margin-left: 50%;
      padding: 6px;
    }
+   
+   .continue-shopping-button{
+
+    border-color: #5D615D;
+    background-color: white;
+    margin-left: 15%;
+    padding: 6px;
+
+   }

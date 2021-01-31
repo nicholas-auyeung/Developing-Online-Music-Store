@@ -30,6 +30,9 @@
               </li>
           </ul>
           <ul class="navbar-nav ml-auto" id="text">
+          	<li class="nav-item active">
+                <a class="nav-link" href="/userdashboard">Welcome ${currentSessionUsername}</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout" th:href="@{/logout}">Logout</a>
             </li>

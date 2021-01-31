@@ -43,4 +43,23 @@ public class OrderDetailsServiceImpl implements OrderDetailsService{
 		
 	}
 
+	@Override
+	public void deleteOrderDetails(long orderDetailId) {
+		try {
+			orderDetailsDAO.deleteOrderDetails(orderDetailId);
+		}catch(Exception e) {
+			throw e;
+		}
+		
+	}
+
+	@Override
+	public OrderDetails getOrderDetails(long orderDetailId) {
+		try {
+			return orderDetailsDAO.getOrderDetails(orderDetailId);
+		}catch(Exception e) {
+			throw e;
+		}
+	}
+
 }

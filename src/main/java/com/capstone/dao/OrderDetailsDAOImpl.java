@@ -45,4 +45,23 @@ public class OrderDetailsDAOImpl implements OrderDetailsDAO{
 		
 	}
 
+	@Override
+	public void deleteOrderDetails(long orderDetailId) {
+		try {
+			orderDetailsRepository.deleteById(orderDetailId);
+		}catch(Exception e) {
+			throw e;
+		}
+		
+	}
+
+	@Override
+	public OrderDetails getOrderDetails(long orderDetailId) {
+		try {
+			return orderDetailsRepository.findById(orderDetailId).get();
+		}catch(Exception e) {
+			throw e;
+		}
+	}
+
 }

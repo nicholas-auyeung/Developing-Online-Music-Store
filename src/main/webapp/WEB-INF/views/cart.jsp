@@ -20,17 +20,20 @@
             <a class="navbar-brand" href="#">Le's Music Store</a>
           <ul class="navbar-nav mr-auto" id="text">
             <li class="nav-item active">
-              <a class="nav-link" href="/home">Home</a>
+              <a class="nav-link" href="/userhome">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/products">Products</a>
+              <a class="nav-link" href="/userproducts">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
               </li>
           </ul>
           <ul class="navbar-nav ml-auto" id="text">
-            <li class="nav-item active">
+          	<li class="nav-item active">
+                <a class="nav-link" href="/userdashboard">Welcome ${currentSessionUsername}</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/logout" th:href="@{/logout}">Logout</a>
           </li>
           <li class="nav-item">
@@ -62,11 +65,12 @@
            <td>${orderDetails.price}</td>
            <td>${orderDetails.quantity}</td>
            <td>${product.qprice}</td>
-           <td><a class="btn btn-outline-danger remove-order-details-button" href="/deleteorderdetails" role="button"><i class="fa fa-times"></i>remove</a></td>
+           <td><a class="btn btn-outline-danger remove-order-details-button" href="/deleteorderdetails/${orderDetails.id}" role="button"><i class="fa fa-times"></i>remove</a></td>
        </c:forEach>
  </table>
  <a class="cart-grand-total-price inline">${totalPrice}</a><a class="cart-grand-total inline">Grand Total</a>
  </div><br/>
+ <a class="btn continue-shopping-button" href="/userproducts" role="button">Continue Shopping</a>
 <footer class="bg-light text-center text-lg-start footer">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
       © 2021 Copyright:
