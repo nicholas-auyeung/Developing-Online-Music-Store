@@ -44,6 +44,7 @@ public class CartController {
 				ModelAndView mv = new ModelAndView("cart");
 				mv.addObject("currentSessionUsername", currentSessionUsername);
 				mv.addObject("totalPrice", 0);
+				return mv;
 			}else {
 				List<OrderDetails> listOrderDetails = orderDetailsService.getOrderDetailsByOrderId(currentSessionUser.getOrderId());
 				ModelAndView mv = new ModelAndView("cart", "listOrderDetails", listOrderDetails);
