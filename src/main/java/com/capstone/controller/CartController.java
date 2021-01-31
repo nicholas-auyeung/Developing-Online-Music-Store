@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -157,7 +158,7 @@ public class CartController {
 	}
 	
 	@RequestMapping(value = "/submitordersuccess", method = RequestMethod.GET)
-	public String thankYouOrderPage() {
+	public String thankYouOrderPage(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String currentSessionUsername = auth.getName();
 		User currentSessionUser = userService.getUserbyUsername(currentSessionUsername);
@@ -170,6 +171,7 @@ public class CartController {
 		orderService.createOrder(newOrder);
 		currentSessionUser.setOrderId(newOrder.getId());
 		userService.updateUser(currentSessionUser);
+		model.addAttribute("currentSessionUsername", currentSessionUsername);
 		return "ordersuccess";
 	}
 	
