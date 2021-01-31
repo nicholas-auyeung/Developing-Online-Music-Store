@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="../css/app.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
-<title>Customer</title>
+<title>Confirm Customer</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-login">
@@ -46,7 +46,7 @@
       </div>
       <h5 class = "customer-header">Customer Details</h5>
       <div class = "container customer-container"><br/>
-        <form:form modelAttribute="form" class="form" action="userdashboard" method="post" role="form" autocomplete="off">
+        <form:form modelAttribute="form" class="form" action="/checkout" method="post" role="form" autocomplete="off">
             <fieldset>
             	<form:hidden path="id" />
             	<form:hidden path="billingId" />
@@ -111,8 +111,8 @@
                     </div>
                 </div><br/>
 
-                <button type="submit" class="btn btn-primary btn-sm inline">Submit</button>
-                <a class="btn btn-sm customer-cancel" href="/userhome" role="button">Cancel</a>
+                <button type="submit" class="btn btn-primary btn-sm inline">Next</button>
+                <a class="btn btn-sm customer-cancel" href="/cart" role="button">Cancel</a>
         </form:form>
         </form:form>
       </div><br/>

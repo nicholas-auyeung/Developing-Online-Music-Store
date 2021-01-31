@@ -315,3 +315,48 @@ body {
       background-color: white;
 
     }
+    
+    .order-banner{
+      padding: 60px;
+      width: 75%;
+      margin-right: 13%;
+      background-color: #F0EEF8;
+      padding: 50px;
+
+     }
+
+     .order-banner-text{
+      color:#5D615D;
+     }
+
+     .order-container{
+        
+        width: 60%;
+     }
+
+     .receipt-header{
+       margin-left: 40%;
+     }
+
+     .order-table{
+       padding: 50px;
+       
+     }
+
+     .order-back-button{
+      color: black;
+    border-color: grey;
+    background-color: white;
+      margin-left: 20%;
+
+     }
+
+     .submit-order-button{
+      
+      background-color: #2CEE15;
+     }
+
+     .order-cancel-button{
+      border-color: black;
+      background-color: white;
+     }
