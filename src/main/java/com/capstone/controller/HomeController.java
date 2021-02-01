@@ -32,5 +32,10 @@ public class HomeController {
 		model.addAttribute("currentSessionUsername", currentSessionUsername);
 		return "adminhome";
 	}
+	
+	@RequestMapping(value= "/about", method = RequestMethod.GET)
+	public String aboutPage() {
+		return "about";
+	}
 
 }

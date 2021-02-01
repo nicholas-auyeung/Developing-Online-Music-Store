@@ -54,7 +54,7 @@
         </thead>
 			<c:forEach items="${productList}" var="product">
 				<tr>
-					<th scope ="row"><img src="https://i.ebayimg.com/images/g/CRwAAAzy1-NSjjF6/s-l500.jpg" alt="product image" class ="product-table-image"></th>
+					<th scope ="row"><img src="${product.image}" alt="product image" class ="product-table-image"></th>
 					<td>${product.name}</td>
 					<td>${product.category}</td>
 					<td>${product.pcondition}</td>

@@ -51,7 +51,7 @@
         <div class="card mb-3 product-details-card">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="https://i.ebayimg.com/images/g/CRwAAAzy1-NSjjF6/s-l500.jpg" alt="product details image" class = "product-details-image">
+                <img src="${productDetails.image}" alt="product details image" class = "product-details-image">
               </div>
               <div class="col-md-3">
                 <div class="card-body">
