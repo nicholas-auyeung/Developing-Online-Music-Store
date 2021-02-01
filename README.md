@@ -96,7 +96,7 @@ On start of the application a default admin account is created with the username
 	Clicking 'X' icon will allow the admin to delete the specified product.
 	Click the pencil icon will allow the admin to edit the specified product.
 ![](screenshots/product_inventory.png)
-![](screenshots/product_inventory_2.png)
+![](screenshots/pi_filled.png)
 ![](screenshots/edit_product.png)
 	
 	Click the 'Add Product' button to add a product.
