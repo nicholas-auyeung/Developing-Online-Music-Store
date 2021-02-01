@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,13 +12,22 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="../css/app.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
-<title>Add Product</title>
+<title>Edit Product</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-login">
         <div class="navbar-collapse collapse" id="navbarSupportedContent">
             <a class="navbar-brand" href="#">Le's Music Store</a>
           <ul class="navbar-nav mr-auto" id="text">
+            <li class="nav-item active">
+              <a class="nav-link" href="/adminhome">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adminproducts">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
           </ul>
           <ul class="navbar-nav ml-auto" id="text">
           	<li class="nav-item active">
@@ -35,13 +43,14 @@
         </div>
       </nav>
       <div class = "container customer-banner">
-        <h1 class = "customer-banner-text">New Product</h1>
-        <h6 class = "customer-banner-text">New Product details</h6>
+        <h1 class = "customer-banner-text">Product</h1>
+        <h6 class = "customer-banner-text">Product details</h6>
       </div>
-      <h5 class = "customer-header">New Product Details</h5>
+      <h5 class = "customer-header">Product Details</h5>
       <div class = "container customer-container"><br/>
-        <form:form modelAttribute="form" class="form" action="addproduct" method="post" role="form" autocomplete="off">
+        <form:form modelAttribute="form" class="form" action="editproduct" method="post" role="form" autocomplete="off">
             <fieldset>
+            	<form:hidden path="id" />
                 <form:label for="name" path="name" class="mb-0 customer-form-field">Name</form:label>
                 <div class="row mb-1">
                     <div class="col-lg-3">
@@ -80,7 +89,7 @@
                 </div><br/>
                 
                 <button type="submit" class="btn btn-primary btn-sm inline">Submit</button>
-                <a class="btn btn-sm customer-cancel" href="/productmanagement" role="button">Cancel</a>
+                <a class="btn btn-sm customer-cancel" href="/productmanagment" role="button">Cancel</a>
         </form:form>
       </div><br/>
 <footer class="bg-light text-center text-lg-start footer">

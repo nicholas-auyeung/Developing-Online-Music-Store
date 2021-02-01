@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +12,22 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="../css/app.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
-<title>Admin Home</title>
+<title>Customer Management</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-login">
         <div class="navbar-collapse collapse" id="navbarSupportedContent">
             <a class="navbar-brand" href="#">Le's Music Store</a>
           <ul class="navbar-nav mr-auto" id="text">
+            <li class="nav-item active">
+              <a class="nav-link" href="/adminhome">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adminproducts">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
           </ul>
           <ul class="navbar-nav ml-auto" id="text">
           	<li class="nav-item active">
@@ -31,19 +42,35 @@
           </ul>
         </div>
       </nav>
-      <div class = "container admin-banner">
-        <h1 class = "admin-banner-text">Administrator page</h1>
-        <h6 class = "admin-banner-text">This is the administrator page!</h6>
+      <div class = "container product-banner">
+
+        <h3 class = "product-banner-text">Customer Management Page</h3>
+        <h6 class = "product-banner-text">This is the customer management page!</h6>
+
       </div>
-      <div class = "container admin-container"><br/>
-        <h3 class="inline">Welcome: admin |</h3><a class="inline admin-logout" href="/logout" th:href="@{/logout}">Logout</a>
-        <br/><a class="product-inventory" href="/productmanagment">Product Inventory</a>
-        <br/><a>Here you can view, check, and modify the product inventory!</a>
-        <br/><a class="customer-managment" href="/customermanagment">Customer Management</a>
-        <br/><a>Here you can manage customer information!</a>
-      </div><br/>
-    
-<br/><footer class="bg-light text-center text-lg-start footer">
+      <div class = "container product-table-container">
+<table id="myTable" class="table product-table">
+		<thead class = "user-table-thead">
+			<th scope = "col">Name</th>
+			<th scope = "col">Email</th>
+			<th scope = "col">Phone</th>
+			<th scope = "col">Username</th>
+			<th scope = "col">Password</th>
+            <th scope = "col"></th>
+            <th scope = "col"></th>
+        </thead>
+			<c:forEach items="${userList}" var="user">
+				<tr>
+					<th scope ="row">${user.name}</th>
+					<td>${user.email}</td>
+					<td>${user.phoneNumber}</td>
+                    <td>${user.username}</td>
+                    <td>${user.password}</td>
+			</c:forEach>
+</table>
+</div>
+<a class="btn continue-shopping-button" href="/adminhome" role="back">back</a>
+<footer class="bg-light text-center text-lg-start footer">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
       © 2021 Copyright:
       <a class="text-dark" href="#">Le's Music Store</a>

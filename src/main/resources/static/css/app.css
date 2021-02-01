@@ -421,3 +421,13 @@ body {
       .customer-managment{
         font-size: large;
       }
+      
+      .add-product-button{
+           margin-left: 5%;
+           background-color: rgb(97, 132, 236);
+           color:white;
+         }
+         
+      .user-table-thead{
+      	background-color: #A2A7A1;
+      }

@@ -1,5 +1,7 @@
 package com.capstone.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +40,12 @@ public class UserDAOImpl implements UserDAO{
 	public User getUserbyEmail(String email) {
 		
 		return userRepository.findByEmail(email);
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		
+		return (List<User>) userRepository.findAll();
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.capstone.service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,12 @@ public class UserServiceImpl implements UserService{
 	public User getUserbyEmail(String email) {
 		
 		return userDAO.getUserbyEmail(email);
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		
+		return userDAO.getAllUsers();
 	}
 	
 
